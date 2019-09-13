@@ -16,7 +16,7 @@ python modules:
 How they work
 Drafts Scraper:
 
-~Run-through
+~Runthrough:
 -Scraper goes to NFL site based on what the starting year is in startdraft()
 -grabs the relevent data using grabdata(), compiles it into a string, then stores it in a global string list
 -cycles to the next year until it hits currentyear
@@ -64,6 +64,8 @@ same as Drafts
 
 ~Note
 -For currently unkown reasons, this program is prone to TimeoutExceptions. As of now, the program continues to run when these exceptions occur and will continue to scrape data. When the scraper does hit these exceptions, there will be duplicate entries. As of now, there is no pruning duplicates away. Any other exception will stop the scraper and it will send error emails.
+
+
 
 
 
