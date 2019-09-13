@@ -45,7 +45,7 @@ grabdata(thisyear)
 After the scraper finishes storing all the player data in the list, it parses through the list and puts it in the excel file
 
 
-
+__________________________
 Birthdays Scraper:
 -Run-through
 -Scrapes through every day of the year 
