@@ -70,7 +70,7 @@ def grabdata(thisyear):
             position   :str =   browser.find_element_by_xpath('//*[@id="drafts"]/tbody/tr[' + str(row) + ']/td[4]').text
             pick       :str =   browser.find_element_by_xpath('//*[@id="drafts_clone"]/tbody/tr[' + str(row) + ']/td[1]').text
             string     :str =   playername + ","+ position  + "," +  str(thisyear)  + "," + str(round)+","+ str(pick)
-            list.append(string)
+            draftlist.append(string)
             print(string)
         row+=1
 
@@ -86,7 +86,7 @@ def grabdata(thisyear):
 
 
 browser = webdriver.Chrome(chromedrivepath)
-list=[]
+draftlist=[]
 draftxl= xlwt.Workbook()
 Drafts=  draftxl.add_sheet("Drafts")
 
@@ -103,19 +103,22 @@ header.write(4,"Draft Pick Number")
 #This starts the scrape
 startdraft()
 
+#cleans duplicates out of the list
+duplicatecleaner = set(draftlist)
+draftlist = list(duplicatecleaner)
 
 #write to excel everything fromlist
-for x in range(0,len(list)):
+for x in range(0,len(draftlist)):
     thisrow= Drafts.row(x+1)
-    contents=list[x].split(',')
+    contents=draftlist[x].split(',')
     thisrow.write(0, contents[0])
     thisrow.write(1, contents[1])
     thisrow.write(2, contents[2])
     thisrow.write(3, contents[3])
     thisrow.write(4, contents[4])
 
-print(len(list))
-print(list)
+print(len(draftlist))
+print(draftlist)
 
 excelname :str = "NFLdrafts" + str(startingyear) + "-" + str(currentyear) + ".xls"
 draftxl.save(excelname)
