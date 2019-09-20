@@ -220,7 +220,11 @@ startdob()
 #novbirths()
 #decbirths()
 
-
+#cleans duplicates out
+print(len(dobs))
+duplicatescleaner = set(dobs)
+dobs = list(duplicatescleaner)
+print(len(duplicatescleaner))
 
 
 #write to excel file from list of dobs
