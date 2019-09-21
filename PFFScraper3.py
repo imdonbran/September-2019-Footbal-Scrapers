@@ -39,7 +39,7 @@ password : str= "somethingfornothing"
 
 #add email address receivers here
 #Email settings
-contacts = ["hengchua3@yahoo.com", "strikegundom725@gmail.com"]
+contacts = ["@yahoo.com", "@gmail.com"]
 subject :str = "PFF Scrape excel sheet"
 message= EmailMessage()
 message['Subject'] =subject
