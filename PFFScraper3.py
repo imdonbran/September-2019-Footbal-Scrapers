@@ -27,7 +27,7 @@ browser = webdriver.Chrome() #<======make sure the filepath is here
 
 #Interval Time in seconds
 days=7
-waitinterval= 60 #* 60 * 24 * days
+waitinterval= 60 * 60 * 24 * days
 ticker = threading.Event()
 
 #to turn on emailing, set it to "yes"
