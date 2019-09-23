@@ -144,8 +144,9 @@ def get_data(browser):
     #           Get Data
 
     homebase = ('https://premium.pff.com/nfl/games?season=%s&week=%s' % (str(thisyear), str(thisweek)))
-    try:
-        for i in range(1,17): #16 games max in a week 17
+
+    for i in range(1,17): #16 games max in a week 17
+        try:
             browser.get(homebase)
             time.sleep(2)
 
@@ -165,8 +166,8 @@ def get_data(browser):
 
                 # converts the stuff to CSV
                 getBothTeams(browser, grade_type, game_number, thisweek, thisyear)
-    except selenium.common.exceptions.NoSuchElementException as e:
-        erroremail(str(e), homebase)
+        except selenium.common.exceptions.NoSuchElementException as e:
+            erroremail(str(e), homebase)
         #browser.close()
         #exit()
 
