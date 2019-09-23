@@ -64,12 +64,33 @@ same as Drafts
 -each month does the same thing, but they all have varying days
 
 ~Note
--For currently unkown reasons, this program is prone to TimeoutExceptions. As of now, the program continues to run when these exceptions occur and will continue to scrape data. When the scraper does hit these exceptions, there will be duplicate entries. As of now, there is no pruning duplicates away. Any other exception will stop the scraper and it will send error emails.
+-For currently unkown reasons, this program is prone to TimeoutExceptions. As of now, the program continues to run when these exceptions occur and will continue to scrape data. When the scraper does hit these exceptions, there will be duplicate entries. The duplicates are taken out by turning the list into a set and then back into a list again.
+
+_____________________________________________________________________________________________________
+PFF Scraper:
+_____________________________________________________________________________________________________
+~Basic Overview:
+- running the program will execute whatever week it is set to now, and then begin a loop that sleeps the program for a week (set by waitinterval) and then scrapes the next week. 
+- the program will run at most 16 scrapes
+- if you want to add more scrapes out of the loop before it starts, call a complete scrape of the week, setupfolders(), and increment the thisweek by 1
+-Error emails will be sent when they occur, but the program will continue to run and collect data. It will also still send the data of the week where the error occurred
 
 
+~Control Variables:
+- thisyear tells it what year to scrape
+- thisweek tells you what week to start the scrape on
+- waitinterval is the delay the program waits in seconds till the next scrape. It should be set on a week currently
 
+~Functions
+-get_data(), getGrades(), & getBothTeams() are all data collecting funtions. In the end they output csv files of each game
+-converCSV() converts data into csvs
+-compile_stats() takes all of the csvs created from the scrape and makes new ones with the compiled stats per category
+-setupfolders() creates a newfolder with the current time on it, goes into it, then calls the scrape. At the end, it sends the emails and backs out of that folder
+-sendemail() and erroremail() are for email handling
 
-
+~Things that need to be changed before use
+-contacts variable for who you want to send the emails to
+-the webdriver path
 
 
 
