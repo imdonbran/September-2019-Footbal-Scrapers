@@ -292,7 +292,15 @@ def erroremail(E, site):
 #does whatever week this is set to, then goes to the next week when the wait interval is done,
 #runs to the end of the year
 print("Wait Interval is "+ str(waitinterval) + " seconds" )
+
+#1st week
+#setupfolders()
+#thisweek+=1
+
+#2nd week
 setupfolders()
+
+#following weeks
 while not ticker.wait(waitinterval):
     if thisweek >=17:
         break
