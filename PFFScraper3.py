@@ -303,7 +303,7 @@ setupfolders()
 
 #following weeks
 while not ticker.wait(waitinterval):
-    if thisweek >=17:
+    if thisweek >=18:
         break
     else:
         thisweek+=1
